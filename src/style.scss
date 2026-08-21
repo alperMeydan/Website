@@ -185,6 +185,35 @@ a:hover { color: var(--accent-hover); }
   }
 }
 
+.section__head {
+  margin-bottom: 1.5rem;
+}
+
+.section__intro {
+  margin-bottom: 4rem;
+}
+
+.departments {
+  // no grid, no flex — a plain single-column stack
+}
+
+.department {
+  padding-block: 2rem;
+  border-top: 1px solid var(--hairline);
+
+  &:last-child {
+    border-bottom: 1px solid var(--hairline);
+  }
+}
+
+.department__name {
+  margin-bottom: 0.75rem;
+}
+
+.department__body {
+  color: var(--text);
+}
+
 html, body {
   margin: 0;
   padding: 0;
