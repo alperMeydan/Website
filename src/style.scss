@@ -18,7 +18,7 @@ $accent-hover:#234B3C;
   --accent:       #{$accent};
   --accent-hover: #{$accent-hover};
 
-  --font-display: 'Dongle', system-ui, sans-serif;
+  --font-display: 'IBM Plex Sans', system-ui, sans-serif;
   --font-sans:    'IBM Plex Sans', system-ui, sans-serif;
   --font-mono:    'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo,
                   Consolas, monospace;
@@ -55,16 +55,19 @@ body {
 
 .t-wordmark {
   font-family: var(--font-display);
-  font-weight: 400;
-  font-size: clamp(4.5rem, 13vw, 10rem);
-  line-height: 0.85;
+  font-weight: 600;
+  font-size: clamp(2.25rem, 6vw, 4.5rem);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  color: var(--text);
 }
 
 .t-tagline {
-  font-family: var(--font-display);
-  font-weight: 300;
-  font-size: clamp(1.5rem, 3.2vw, 2.25rem);
-  line-height: 1.15;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: clamp(1.125rem, 2.4vw, 1.5rem);
+  line-height: 1.4;
+  color: var(--text);
 }
 
 .t-hero-sentence {
@@ -138,11 +141,10 @@ a:hover { color: var(--accent-hover); }
 }
 
 .hero__wordmark {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
 }
 
 .hero__tagline {
-  color: var(--text-muted);
   margin-bottom: 3rem;
 }
 
