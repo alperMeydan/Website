@@ -23,9 +23,9 @@ $accent-hover:#234B3C;
   --font-mono:    'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo,
                   Consolas, monospace;
 
-  --container-max: 1120px; // TODO: confirm value
-  --gutter:        clamp(1.25rem, 4vw, 3rem); // TODO: confirm value
-  --section-gap:   clamp(4rem, 10vw, 8rem); // TODO: confirm value
+  --container-max: 1140px;
+  --gutter:        clamp(1.25rem, 5vw, 3rem);
+  --section-gap:   clamp(5rem, 11vw, 8.5rem);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -124,6 +124,67 @@ body {
 a { color: var(--accent); }
 a:hover { color: var(--accent-hover); }
 
+.section {
+  padding-block: var(--section-gap);
+  border-bottom: 1px solid var(--hairline-strong);
+}
+
+.section--hero {
+  // no min-height, no height, no viewport lock
+}
+
+.section__num {
+  margin-bottom: 2rem;
+}
+
+.hero__wordmark {
+  margin-bottom: 0.5rem;
+}
+
+.hero__tagline {
+  color: var(--text-muted);
+  margin-bottom: 3rem;
+}
+
+.hero__sentence {
+  margin-bottom: 3.5rem;
+}
+
+.hero__index {
+  margin-bottom: 2.5rem;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    margin-bottom: 0.4rem;
+  }
+
+  a {
+    color: var(--text-muted);
+    text-decoration: none;
+
+    &:hover {
+      color: var(--accent);
+    }
+  }
+}
+
+.hero__contact a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--hairline);
+  padding-bottom: 2px;
+
+  &:hover {
+    color: var(--accent-hover);
+    border-bottom-color: var(--accent-hover);
+  }
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -139,34 +200,6 @@ body {
   min-height: 100vh; /* full-screen height */
   position: relative;
   z-index: 1; /* ensures scenes are above background */
-}
-
-.text-container {
-  z-index: 2;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 0;
-  left: 0;
-  justify-content: center;
-  align-items: center;
-  color: var(--text);
-  opacity: 0.8;
-  user-select: none;
-  text-align: center;
-
-  .main-title {
-    font-size: 96px;
-    line-height: 1;
-  }
-
-  .tagline {
-    font-size: 32px;
-    opacity: 0.9;
-    margin-top: -10px;
-  }
 }
 
 .content {
