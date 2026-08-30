@@ -256,6 +256,9 @@ a:hover { color: var(--accent-hover); }
 .entry__link {
   margin-top: 1rem;
   margin-bottom: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
 
   a {
     color: var(--accent);
@@ -267,6 +270,15 @@ a:hover { color: var(--accent-hover); }
       color: var(--accent-hover);
       border-bottom-color: var(--accent-hover);
     }
+  }
+}
+
+.entry__link a.entry__link-secondary {
+  color: var(--text-muted);
+
+  &:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
   }
 }
 
