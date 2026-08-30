@@ -3,45 +3,84 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy - Abstract Minds Bureau</title>
-  <link rel="icon" type="image/svg+xml" href="/src/logo.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/src/style.css">
+  <title>Privacy Policy — Aetheria &amp; Endless Forest</title>
+  <meta name="description" content="Privacy policy for Aetheria & Endless Forest, a game by Abstract Minds Bureau.">
+  <link rel="icon" type="image/png" href="/src/logo.png">
+  <link rel="apple-touch-icon" href="/src/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: 'Dongle', sans-serif;
-      padding: 2rem;
-      line-height: 1.6;
-      background: #f9f9f9;
-      color: #111;
-      font-size: 1.5rem; /* Increase the base font size */
+      background: #F7F4EE;
+      color: #1A1714;
+      font-family: 'IBM Plex Sans', system-ui, sans-serif;
+      font-size: 17px;
+      line-height: 1.65;
+      max-width: 68ch;
+      margin-inline: 0;
+      padding: clamp(1.25rem, 5vw, 3rem);
     }
+
+    h1, h2 {
+      font-family: 'IBM Plex Sans', system-ui, sans-serif;
+      font-weight: 600;
+      line-height: 1.25;
+      color: #1A1714;
+    }
+
     h1 {
-      font-size: 2.5rem; /* Bigger main heading */
-      margin-top: 1.5rem;
+      font-size: clamp(1.75rem, 4vw, 2.25rem);
+      margin: 0 0 1.5rem;
     }
+
     h2 {
-      font-size: 1.8rem; /* Bigger subheadings */
-      margin-top: 1.5rem;
+      font-size: clamp(1.25rem, 3vw, 1.5rem);
+      margin: 2.5rem 0 1rem;
     }
-    p, li {
-      margin-bottom: 1rem;
+
+    p, ul {
+      margin: 0 0 1rem;
     }
+
     ul {
       list-style-type: disc;
-      margin-left: 2rem;
+      padding-left: 1.5rem;
     }
-    .back-button {
-      display: inline-block;
-      margin-top: 2rem;
+
+    a {
+      color: #2D5F4C;
+    }
+
+    a:hover {
+      color: #234B3C;
+    }
+
+    .back-link {
+      font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo,
+                   Consolas, monospace;
+      font-size: 13px;
+      letter-spacing: 0.02em;
+      margin-bottom: 2.5rem;
+    }
+
+    .back-link a {
+      color: #6B655C;
       text-decoration: none;
-      color: #007bff;
-      font-weight: bold;
-      font-size: 1.2rem; /* Make the back link bigger too */
     }
-  </style>  
+
+    .back-link a:hover {
+      color: #2D5F4C;
+    }
+  </style>
 </head>
 <body>
+  <p class="back-link"><a href="https://abstractmindsbureau.com/">&larr; Abstract Minds Bureau</a></p>
+
   <h1>Privacy Policy for Aetheria & Endless Forest</h1>
   <p><strong>Last Updated:</strong> August 20, 2025</p>
 
@@ -78,7 +117,5 @@
     Abstract Minds Bureau<br>
     <a href="mailto:abstractmindsbureau@gmail.com">abstractmindsbureau@gmail.com</a>
   </p>
-
-  <a href="/" class="back-button">← Back to Home</a>
 </body>
 </html>
