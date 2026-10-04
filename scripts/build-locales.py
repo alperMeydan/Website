@@ -21,6 +21,7 @@ for line in (ROOT / 'content/translations.tsv').read_text(encoding='utf-8').spli
 
 IDENTITY = {'EN', 'TR', 'RU', 'Abstract Minds', 'Bureau', 'Abstract', 'Minds Bureau.', 'CyberShop', 'Shadow', 'Warriors', 'AMB / DEV', 'const', 'studio = {', 'owner:', '"human"', ',', 'agents: [', '"project_manager"', '"programmer"', '"tester"', '"architecture_checker"', '],', 'merge:', '"owner_approval"', '};', '▍', 'AI Development', 'Studio', 'Aetheria &', 'Endless Forest', 'Shadow Warriors', 'Unity / C#', 'ThoughtsUI', 'AM', 'Alper Meydan', 'abstractmindsbureau@gmail.com', 'Abstract Minds Bureau', '✳', 'English', 'Türkçe', 'Русский'}
 ORIGIN = 'https://abstractmindsbureau.com'
+SOCIAL_LOCALES = {'tr': 'tr_TR', 'ru': 'ru_RU'}
 
 class Localizer(HTMLParser):
     def __init__(self, lang):
@@ -49,10 +50,15 @@ class Localizer(HTMLParser):
         for key in ['alt', 'aria-label', 'title']:
             if attributes.get(key):
                 attributes[key] = self.translate(attributes[key])
-        if tag == 'meta' and attributes.get('name') == 'description':
-            attributes['content'] = self.translate(attributes['content'])
-        if tag == 'meta' and attributes.get('property') == 'og:description':
-            attributes['content'] = self.translate(attributes['content'])
+        if tag == 'meta':
+            name = attributes.get('name')
+            prop = attributes.get('property')
+            if name in {'description', 'twitter:title', 'twitter:description', 'twitter:image:alt'} or prop in {'og:title', 'og:description', 'og:image:alt'}:
+                attributes['content'] = self.translate(attributes['content'])
+            if prop == 'og:url':
+                attributes['content'] = f'{ORIGIN}/{self.lang}/'
+            if prop == 'og:locale':
+                attributes['content'] = SOCIAL_LOCALES[self.lang]
         if tag == 'link' and attributes.get('rel') == 'canonical':
             attributes['href'] = f'{ORIGIN}/{self.lang}/'
         if tag == 'a' and 'hreflang' in attributes:

@@ -7,8 +7,9 @@ existing `npm run deploy` command publishes to the `gh-pages` branch of
 `https://github.com/alperMeydan/Website.git`.
 
 The Vite base remains `/`. `public/CNAME` retains `abstractmindsbureau.com`, and
-the existing `/privacypolicyaetheriaendlessforest/` page is copied unchanged into
-every build. Production canonical, alternate-language and social-image URLs use
+the `/privacypolicyaetheriaendlessforest/` page retains its policy wording, date
+and URL while using the redesign's dark styling. Its HTML and stylesheet are
+copied into every build. Production canonical, alternate-language and social-image URLs use
 `https://abstractmindsbureau.com`.
 
 ## Files
@@ -28,9 +29,17 @@ every build. Production canonical, alternate-language and social-image URLs use
   directory settings remain in use.
 - `scripts/build-locales.py`: generator paths point to the integrated repository
   files, and all text reads and writes explicitly use UTF-8 on Windows.
-- `content/translations.tsv`: all 211 supplied static translation entries.
+- `content/translations.tsv`: 212 static translation entries, including the
+  sharing image description.
 - `public/assets/aetheria-store.webp`, `cybershop.webp`, `limbo.webp`, `logo.png`,
   `og-image.png`: original supplied artwork, copied without modification.
+- `content/social-preview.html`: 1200×630 sharing-card authoring layout, rendered
+  with the approved CyberShop artwork, original logo and current typography.
+- `public/assets/amb-social-redesign-2026-10.png`: exported sharing card. This new
+  filename is used by Open Graph and Twitter metadata on all three locale pages
+  and the privacy page.
+- `public/privacypolicyaetheriaendlessforest/index.html`, `styles.css`: the policy
+  in a responsive dark layout, with the approved logo and local production CSS.
 
 ## Editing and localization
 
@@ -58,6 +67,13 @@ The generator fails if an English string has no translation. Commit regenerated
 `tr/index.html` and `ru/index.html` with the English source. Keep the same body
 structure across all locales: language switching updates existing nodes so the
 visitor's filters, open disclosures and focus survive.
+
+Social titles, descriptions and image descriptions are also generated from the
+translation source. `scripts/build-locales.py` writes each locale's Open Graph URL
+and locale code. `src/language.js` refreshes this metadata during in-place language
+changes. The sharing-card PNG is a committed browser rendering of
+`content/social-preview.html`, at 1200×630 pixels; it requires no runtime image
+generation or additional deployment dependency.
 
 ## Local preview
 
@@ -97,14 +113,24 @@ directory discovery. The ordinary npm commands still work outside that sandbox.
 - `git diff --check` passed. Browser harnesses, logs and screenshots are in the
   ignored `.local/` directory and are not required to build or publish the site.
 
+## Sharing and privacy follow-up verification
+
+The production build and 17 targeted browser checks passed for the updated
+sharing card and privacy styling. Checks covered localized Open Graph/Twitter
+metadata on direct pages and all six language-switch directions, metadata after
+back navigation, preserved filters and disclosures, PNG dimensions and serving,
+all original policy wording and the August 20, 2025 date, the privacy stylesheet
+and logo, layouts at 1440px/390px/320px, and the return link. The sharing image and
+privacy screenshots were visually inspected. No JavaScript or local asset errors
+were reported.
+
 ## Publishing through the existing GitHub setup
 
-No commit, source push or production deployment was performed by this import.
 From `C:\Users\alper\Desktop\AMB\Website`, review and commit only the integrated
 files, leaving the import package and unrelated `.claude/` files out of the commit:
 
 ```powershell
-git add index.html src/main.ts src/styles.css src/i18n.js src/script.js src/language.js vite.config.js scripts/build-locales.py content/translations.tsv public/assets tr/index.html ru/index.html README-INTEGRATION.md
+git add index.html src/main.ts src/styles.css src/i18n.js src/script.js src/language.js vite.config.js scripts/build-locales.py content/translations.tsv content/social-preview.html public/assets public/privacypolicyaetheriaendlessforest tr/index.html ru/index.html README-INTEGRATION.md
 git diff --cached --stat
 git commit -m "Integrate approved AMB redesign"
 git push origin main

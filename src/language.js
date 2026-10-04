@@ -77,7 +77,13 @@
     root.lang = page.documentElement.lang;
     window.AMB_I18N.setLanguage(root.lang);
     document.title = page.title;
-    for (const selector of ['meta[name="description"]', 'meta[property="og:description"]']) {
+    for (const selector of [
+      'meta[name="description"]', 'meta[property="og:title"]',
+      'meta[property="og:description"]', 'meta[property="og:url"]',
+      'meta[property="og:locale"]', 'meta[property="og:image:alt"]',
+      'meta[name="twitter:title"]', 'meta[name="twitter:description"]',
+      'meta[name="twitter:image:alt"]'
+    ]) {
       document.querySelector(selector).content = page.querySelector(selector).content;
     }
     document.querySelector('link[rel="canonical"]').href = page.querySelector('link[rel="canonical"]').href;
